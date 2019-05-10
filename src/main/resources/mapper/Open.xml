@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shu.db.dao.OpenDao">
+
+    <select id="getOpenList" resultType="com.shu.db.entity.Open">
+        SELECT * FROM o
+    </select>
+
+    <insert id="insertOpen" parameterType="com.shu.db.entity.Open" >
+        INSERT INTO o(xq,kh,gh,sksj) VALUES (#{xq},#{kh},#{gh},#{sksj})
+    </insert>
+
+    <delete id="deleteOpen" parameterType="com.shu.db.entity.Open">
+        DELETE FROM o WHERE  xq = #{xq} AND kh = #{kh} AND  gh =#{gh}
+    </delete>
+
+</mapper>

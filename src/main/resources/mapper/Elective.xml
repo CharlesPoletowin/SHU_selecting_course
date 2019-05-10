@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shu.db.dao.ElectiveDao">
+
+    <select id="getElectiveList" resultType="com.shu.db.entity.Elective">
+        SELECT * FROM e
+    </select>
+
+    <insert id="insertElective" parameterType="com.shu.db.entity.Elective">
+        INSERT INTO e(xh,xq,kh,gh) VALUES (#{xh},#{xq},#{kh},#{gh})
+    </insert>
+
+    <update id="updateElective" parameterType="com.shu.db.entity.Elective">
+        UPDATE e SET xh = #{xh} , xq = #{xq},kh=#{kh},gh=#{gh},pscj=#{pscj},kscj=#{kscj},zpcj=#{zpcj} WHERE xh = #{xh} AND xq = #{xq} AND kh=#{kh} AND gh=#{gh}
+    </update>
+
+    <delete id="deleteElective" parameterType="com.shu.db.entity.Elective">
+        DELETE FROM e WHERE xh = #{xh} AND xq = #{xq} AND kh=#{kh} AND gh=#{gh}
+    </delete>
+
+</mapper>

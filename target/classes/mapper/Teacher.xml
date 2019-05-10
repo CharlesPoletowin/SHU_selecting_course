@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shu.db.dao.TeacherDao">
+
+    <select id="getTeacher" parameterType="java.lang.String" resultType="com.shu.db.entity.Teacher">
+        SELECT * FROM t WHERE gh = #{gh}
+    </select>
+
+    <select id="getTeacherList" resultType="com.shu.db.entity.Teacher">
+        SELECT * FROM t
+    </select>
+
+    <insert id="insertTeacher" parameterType="com.shu.db.entity.Teacher">
+        INSERT INTO  t(gh,xm) VALUES (#{gh},#{xm})
+    </insert>
+
+    <update id="updateTeacher" parameterType="com.shu.db.entity.Teacher">
+        UPDATE t SET xm=#{xm} WHERE  gh=#{gh}
+    </update>
+
+    <delete id="deleteTeacher" parameterType="java.lang.String">
+        DELETE FROM t WHERE gh = #{gh}
+    </delete>
+
+</mapper>
