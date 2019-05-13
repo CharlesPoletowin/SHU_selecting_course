@@ -31,43 +31,69 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active" id="Profile"><a href="#">资料总览<span class="sr-only">(current)</span></a></li>
+                <li class="active" id="Profile"><a href="#">学生成绩管理<span class="sr-only">(current)</span></a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">教师界面</h1>
             <h3>你好, ${teacher.xm}</h3>
             <h2 class="sub-header">上课记录</h2>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>学期</th>
-                        <th>课程号</th>
-                        <th>学生</th>
-                        <th>平时成绩</th>
-                        <th>考试成绩</th>
-                        <th>总评成绩</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${electiveList}" varStatus="status" var="item">
-                        <tr>
-                            <td></td>
-                            <td>${item.xq}</td>
-                            <td>${item.kh}</td>
-                            <td>${item.xh}</td>
-                            <td>${item.pscj}</td>
-                            <td>${item.kscj}</td>
-                            <td>${item.zpcj}</td>
-                            <td><a href="/teacher.jsp?idx=${status.index}">修改成绩</a></td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </div>
+            <%--<div class="table-responsive">--%>
+                <%--<table class="table table-striped">--%>
+                    <%--<thead>--%>
+                    <%--<tr>--%>
+                        <%--<th>#</th>--%>
+                        <%--<th>学期</th>--%>
+                        <%--<th>课程号</th>--%>
+                        <%--<th>学生</th>--%>
+                        <%--<th>平时成绩</th>--%>
+                        <%--<th>考试成绩</th>--%>
+                        <%--<th>总评成绩</th>--%>
+                        <%--<th>操作</th>--%>
+                    <%--</tr>--%>
+                    <%--</thead>--%>
+
+                    <%--<tbody>--%>
+                    <%--<c:forEach items="${electiveList}" varStatus="status" var="item">--%>
+                        <%--<tr>--%>
+                                <%--<th></th>--%>
+                                <%--<th name="${status.index}xq">${item.xq}</th>--%>
+                                <%--<th name="kh">${item.kh}</th>--%>
+                                <%--<th name="xh">${item.xh}</th>--%>
+                                <%--<th><input type="text" name="pscj" value="${item.pscj}" style="width:20%"/></th>--%>
+                                <%--<th><input type="text" name="kscj" value="${item.kscj}" style="width:20%"/></th>--%>
+                                <%--<th>${item.zpcj}</th>--%>
+                                <%--<th><a href="/teacher.jsp?idx=${status.index}">修改成绩</a></th>--%>
+                        <%--</tr>--%>
+                    <%--</c:forEach>--%>
+                    <%--</tbody>--%>
+                <%--</table>--%>
+            <%--</div>--%>
+<form class="table-responsive" action="UpdateScores">
+平时成绩百分比0~1.0<input type="text" name="Percentage"  onFocus="this.value=''" value="0<x<1"/>
+<br/>
+    <input type="text" name="count" readonly="readonly" style="width:15px" value="${electiveList.size()}"/>
+    <input type="text"  value="学期" readonly="readonly" />
+    <input type="text" value="课程号" readonly="readonly" />
+    <input type="text" readonly="readonly" value="学生学号"/>
+    <input type="text" readonly="readonly" value="平时成绩"/>
+    <input type="text" readonly="readonly" value="考试成绩"/>
+    <a>总评成绩</a>
+<br/><br/>
+<c:forEach items="${electiveList}" varStatus="status" var="item">
+    <input type="text" readonly="readonly" style="width:15px" value=" "/>
+    <input type="text" name="${status.index}xq" value="${item.xq}" readonly="readonly" />
+    <input type="text" name="${status.index}kh" value="${item.kh}" readonly="readonly"/>
+    <input type="text" name="${status.index}xh" readonly="readonly" value="${item.xh}"/>
+    <input type="text" name="${status.index}pscj" value="${item.pscj}" />
+    <input type="text" name="${status.index}kscj" value="${item.kscj}"/>
+    <a>${item.zpcj}</a>
+    <br />
+</c:forEach>
+<button type="submit" >提交</button>
+</form>
+
+
             <%-- ↓↓成绩修改↓↓ --%>
             <c:if test="${param.get('idx') != null}">
                 <h2 class="sub-header">成绩修改</h2>
@@ -115,7 +141,7 @@
                             </div>
                         </div>
                     </c:forEach>
-                    <button type="submit" >提交</button>
+
                 </form>
             </c:if>
             <%-- ↑↑成绩修改↑↑ --%>

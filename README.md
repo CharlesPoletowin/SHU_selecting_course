@@ -2,7 +2,7 @@
 
 this is the project for selecting course in 2019 Spring database course
 
-Unfortunately this is only a demo project for selecting course. You could only use this project to select the course but not drop a course
+Unfortunately this is only a demo project for selecting course. You could only use this project to select the course and  drop the course
 
 With the help of IntelliJ IDEA, this project can be used easily.
 
