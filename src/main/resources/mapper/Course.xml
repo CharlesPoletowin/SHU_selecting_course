@@ -13,6 +13,10 @@
         SELECT * FROM c
     </select>
 
+    <select id="getCourseListbyYxh" parameterType="java.lang.String" resultType="com.shu.db.entity.Course">
+        SELECT * FROM c where yxh=#{yxh}
+    </select>
+
     <insert id="insertCourse" parameterType="com.shu.db.entity.Course">
         INSERT INTO c (kh,km) VALUES (#{kh},#{km})
     </insert>
@@ -22,7 +26,7 @@
     </delete>
 
     <update id="updateCourse" parameterType="com.shu.db.entity.Course">
-        UPDATE _course SET cName=#{cName} WHERE cId = #{cID}
+        UPDATE c SET km=#{km} WHERE kh = #{kh}
     </update>
 
 </mapper>

@@ -9,6 +9,7 @@ import java.util.List;
 public interface CourseDao {
     Course getCourse(String kh);
     List<Course> getCourseList();
+    List<Course> getCourseListbyYxh(String yxh);
     void insertCourse(Course course);
     void deleteCourse(String kh);
     void updateCourse(Course course);

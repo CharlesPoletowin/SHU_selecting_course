@@ -29,5 +29,9 @@ public class CourseServiceImpl implements CourseService {
         CourseDao courseDao = sqlSession.getMapper(CourseDao.class);
         return courseDao.getCourseList();
     }
-
+    public List<Course> getCourseListbyYxh(String yxh){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        CourseDao courseDao = sqlSession.getMapper(CourseDao.class);
+        return courseDao.getCourseListbyYxh(yxh);
+    }
 }

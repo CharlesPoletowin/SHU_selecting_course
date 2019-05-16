@@ -9,4 +9,5 @@ import java.util.List;
 public interface CourseService {
     Course getCourseByKh(String kh);
     List<Course> getCourseList();
+    List<Course> getCourseListbyYxh(String yxh);
 }

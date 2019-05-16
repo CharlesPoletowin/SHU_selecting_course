@@ -29,17 +29,22 @@ public class ElectServlet extends HttpServlet {
 
         OpenServiceImpl openService = new OpenServiceImpl();
         Open open = openService.getOpenByKhAndGhAndXq(kh,gh,"2018-2019春季");
-//        System.out.println("ElectServlet Open exist?"+open);
+        System.out.println("ElectServlet Open exist?"+open);
         if(open !=null){
             ElectiveServiceImpl electiveService = new ElectiveServiceImpl();
             long startTime = System.currentTimeMillis();
             boolean success1 = true;
             for (Elective item : electiveService.getElectiveListByXh(student.getXh())){
                 if (item.getKh().equals(open.getKh())){
-                    success1=false;
+                    if(item.getXq().equals(open.getXq())){
+                        success1=false;
+                    }
+                    else if (item.getKscj()<80){
+                        success1=false;
+                    }
                 }
             }
-//            System.out.println("ElectServlet success1:"+success1);
+            System.out.println("ElectServlet success1:"+success1+" You have selected the same course before!");
             if(success1){
                 boolean success = electiveService.insertElectiveWithXhAndOpen(student.getXh(),open);
                 System.out.println("In ElectServlet "+student.getXh()+open.getXq()+open.getKh());

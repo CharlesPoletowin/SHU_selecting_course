@@ -53,9 +53,10 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li id="Profile"><a href="#">资料总览</a></li>
-                <li id="Course"><a href="#">课程一览</a></li>
+                <li id="Course"><a href="#">选课</a></li>
                 <li class="active" id="DeleteCourse"><a href="#">退课 <span class="sr-only">(current)</span></a></li>
                 <li id="History"><a href="#">历史课程</a></li>
+                <li><a href="/Complete">学分完成情况</a></li>
             </ul>
         </div>
         <%@ include file="./Common/queryCourse.jsp"%>

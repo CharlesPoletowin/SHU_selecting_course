@@ -70,25 +70,27 @@
                 <%--</table>--%>
             <%--</div>--%>
 <form class="table-responsive" action="UpdateScores">
-平时成绩百分比0~1.0<input type="text" name="Percentage"  onFocus="this.value=''" value="0<x<1"/>
+平时成绩百分比0~1.0<input type="text" name="Percentage"  placeholder="0<x<1"/>
 <br/>
-    <input type="text" name="count" readonly="readonly" style="width:15px" value="${electiveList.size()}"/>
-    <input type="text"  value="学期" readonly="readonly" />
+    <div class="table table-striped table-hover table-bordered">
+    <input type="text"  name="count" readonly="readonly" style="width:15px" value="${electiveList.size()}"/>
+    <input type="text" value="学期" readonly="readonly" />
     <input type="text" value="课程号" readonly="readonly" />
-    <input type="text" readonly="readonly" value="学生学号"/>
-    <input type="text" readonly="readonly" value="平时成绩"/>
-    <input type="text" readonly="readonly" value="考试成绩"/>
+    <input type="text"  readonly="readonly" value="学生学号"/>
+    <input type="text"  readonly="readonly" value="平时成绩"/>
+    <input type="text"  readonly="readonly" value="考试成绩"/>
     <a>总评成绩</a>
-<br/><br/>
+    </div>
 <c:forEach items="${electiveList}" varStatus="status" var="item">
-    <input type="text" readonly="readonly" style="width:15px" value=" "/>
+    <div class="table-responsive">
+    <input type="text" readonly="readonly" style="width:15px" value="${status.index+1}"/>
     <input type="text" name="${status.index}xq" value="${item.xq}" readonly="readonly" />
     <input type="text" name="${status.index}kh" value="${item.kh}" readonly="readonly"/>
     <input type="text" name="${status.index}xh" readonly="readonly" value="${item.xh}"/>
     <input type="text" name="${status.index}pscj" value="${item.pscj}" />
     <input type="text" name="${status.index}kscj" value="${item.kscj}"/>
     <a>${item.zpcj}</a>
-    <br />
+    </div>
 </c:forEach>
 <button type="submit" >提交</button>
 </form>
