@@ -128,6 +128,9 @@
     $('#History').click(function () {
         location.href="/history.jsp"
     });
+    $('#DeleteCourse').click(function () {
+        location.href="/deletecourse.jsp"
+    });
 </script>
 </body>
 </html>
